@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import React from 'react';
 import NavLink from './NavLink';
 
 const Header = () => {
-  const daco;
   return (
     <header>
       <nav
