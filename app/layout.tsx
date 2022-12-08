@@ -1,8 +1,14 @@
 import React from 'react';
 import Header from './(components)/Header';
 import '../styles/globals.css';
+import { unstable_getServerSession } from 'next-auth/next';
+import { authOptions } from '../pages/api/auth/[...nextauth]';
+import AuthProviders from './AuthProviders';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+  const session = await unstable_getServerSession(authOptions);
+
   return (
     <html>
       <body
@@ -13,8 +19,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           height: '100vh',
         }}
       >
-        <Header />
-        <div style={{ backgroundColor: '#303030', flexGrow: '1', color: 'white' }}>{children}</div>
+        <AuthProviders session={session}>
+          {/* @ts-ignore */}
+          <Header />
+          <div style={{ backgroundColor: '#303030', flexGrow: '1', color: 'white' }}>{children}</div>
+        </AuthProviders>
       </body>
     </html>
   );
