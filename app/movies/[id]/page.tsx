@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -16,6 +17,9 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
       <h3 style={{ margin: '0' }}>{`Title: ${movie.Title}`}</h3>
       <h3 style={{ margin: '0' }}>{`Year: ${movie.Year}`}</h3>
       <h3 style={{ margin: '0' }}>{`Director: ${movie.Director}`}</h3>
+      <div style={{ height: '200px', width: '200px', position: 'relative', borderRadius: '1rem', overflow: 'hidden' }}>
+        <Image style={{ objectFit: 'cover' }} src={movie.Poster} alt="Movie Poster" fill={true}></Image>
+      </div>
       <Link href="/movies">
         <p style={{ alignSelf: 'flex-end' }}>X</p>
       </Link>
