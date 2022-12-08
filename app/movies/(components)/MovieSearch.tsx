@@ -15,10 +15,16 @@ const MovieSearch = ({ handleSearchSubmit }: { handleSearchSubmit: (search: stri
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <form onSubmit={handleFormSubmit}>
-        <input style={{ width: '320px' }} onChange={handleInput} value={search} />
-        <button type="submit">Search Movie</button>
+    <div>
+      <form className="flex gap-8" onSubmit={handleFormSubmit}>
+        <input
+          className="w-80 rounded-lg outline-zinc-300 focus:outline-none focus:ring-2 duration-75 focus:ring-slate-200 px-2"
+          onChange={handleInput}
+          value={search}
+        />
+        <button className="bg-blue-700 px-3 py-2 rounded-lg hover:bg-blue-600 duration-100 font-semibold " type="submit">
+          Search Movie
+        </button>
       </form>
     </div>
   );

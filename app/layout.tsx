@@ -11,18 +11,11 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <html>
-      <body
-        style={{
-          margin: '0',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100vh',
-        }}
-      >
+      <body className="m-0 flex flex-col h-screen">
         <AuthProviders session={session}>
           {/* @ts-ignore */}
           <Header />
-          <div style={{ backgroundColor: '#303030', flexGrow: '1', color: 'white' }}>{children}</div>
+          <div className="flex-grow bg-zinc-900 text-neutral-50">{children}</div>
         </AuthProviders>
       </body>
     </html>

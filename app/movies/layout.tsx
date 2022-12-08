@@ -18,13 +18,13 @@ const MovieResultLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+    <div className="p-8 flex flex-col gap-8">
       <MovieSearch handleSearchSubmit={handleSearchSubmit} />
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <div style={{ backgroundColor: '#232323', padding: '2rem', borderRadius: '1rem', minWidth: '420px' }}>
+      <div className="flex gap-8">
+        <div className="bg-neutral-800 p-8 rounded-2xl min-w-[420px]">
           <SearchResults movies={movies} />
         </div>
-        <div style={{ display: 'flex', flex: '1' }}>{children}</div>
+        <div className="flex flex-grow">{children}</div>
       </div>
     </div>
   );

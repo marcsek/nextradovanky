@@ -13,15 +13,15 @@ const MovieDetail = async ({ params }: { params: { id: string } }) => {
   const movie = await getMovieById(params.id);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <h3 style={{ margin: '0' }}>{`Title: ${movie.Title}`}</h3>
-      <h3 style={{ margin: '0' }}>{`Year: ${movie.Year}`}</h3>
-      <h3 style={{ margin: '0' }}>{`Director: ${movie.Director}`}</h3>
-      <div style={{ height: '200px', width: '200px', position: 'relative', borderRadius: '1rem', overflow: 'hidden' }}>
+    <div className="flex flex-col gap-4">
+      <h3 className="m-0">{`Title: ${movie.Title}`}</h3>
+      <h3 className="m-0">{`Year: ${movie.Year}`}</h3>
+      <h3 className="m-0">{`Director: ${movie.Director}`}</h3>
+      <div className="h-[200px] w-[200px] relative rounded-2xl overflow-hidden drop-shadow-lg drop-shadow-black">
         <Image style={{ objectFit: 'cover' }} src={movie.Poster} alt="Movie Poster" fill={true}></Image>
       </div>
       <Link href="/movies">
-        <p style={{ alignSelf: 'flex-end' }}>X</p>
+        <p className="self-end">X</p>
       </Link>
     </div>
   );
